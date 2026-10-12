@@ -217,20 +217,7 @@ npm test
 
 The overlap tests cover exact duplicates, partial overlaps, bookings that start or end at an existing booking boundary, enclosing intervals, non-overlapping reservations, and availability timeline slots.
 
-## Troubleshooting
 
-- **Cannot connect to PostgreSQL:** Confirm the database container is running with `docker compose ps`, and verify `DATABASE_URL` in `.env`.
-- **Prisma Client errors:** Run `npx prisma generate` after installing dependencies or changing the Prisma schema.
-- **Database tables are missing:** Run `npx prisma db push` against the intended development database.
-- **Port 5432 is already in use:** Stop the other PostgreSQL service or change the published port in `docker-compose.yml` and update `DATABASE_URL`.
-- **Port 3000 is already in use:** Set another port in your environment or start Next.js with `npm run dev -- -p 3001`.
-- **Database constraint already exists:** Do not apply `prisma/migrations/exclusion_constraint.sql` a second time. Check the database before retrying.
 
-## Security Notes
-
-- Never commit `.env`, production secrets, or real user credentials.
-- Use a unique, strong `JWT_SECRET` outside local development.
-- Keep dependencies updated and validate permissions on the server for protected operations.
-- The included sample accounts and database settings are for local development and assessment purposes only.
 
 
